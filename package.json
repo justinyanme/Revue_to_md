@@ -1,6 +1,6 @@
 {
     "name": "revue_to_md",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Export your [Revue](https://www.getrevue.co/) issues to Markdown files.",
     "main": "index.js",
     "scripts": {
