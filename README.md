@@ -5,7 +5,7 @@ Export your [Revue](https://www.getrevue.co/) issues to Markdown files.
 - ✅Export all issues in Markdown format
 - ✅Auto download all images
 
-[简体中文](README_cn.md)
+[简体中文请点这里](README_cn.md)
 
 ## ⚠️Prerequirements
 
