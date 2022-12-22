@@ -7,6 +7,33 @@ import * as fs from 'fs-extra'
 import * as path from 'path'
 import { setupConfig } from './config'
 
+async function exportSubscriberList(argv: { [key: string]: any }) {
+    log.info(`exportSubscriberList: ${JSON.stringify(argv)}`)
+
+    const config = setupConfig()
+    const token = config.revue.token
+    if (!isValidString(token)) {
+        log.error(`invalid token.`)
+        return
+    }
+
+    const subscribers = await revue.getSubscribers()
+    const outFolder = path.resolve(process.cwd(), 'out')
+    if (!fs.existsSync(outFolder)) {
+        await fs.mkdir(outFolder)
+        log.info(`created out folder.`)
+    }
+
+    try {
+        const jsonPath = path.resolve(outFolder, 'subscribers.json')
+        await fs.writeFile(jsonPath, JSON.stringify(subscribers))
+        log.info(`Exported at: ${jsonPath}`)
+
+    } catch (error) {
+        log.error(error)
+    }
+}
+
 async function listIssues(argv: { [key: string]: any }) {
     log.info(`listIssues: ${JSON.stringify(argv)}`)
 
@@ -85,6 +112,10 @@ yargs
             },
         })
     }, saveIssues)
+    .command('exportSubscriberList', 'Export all subscribers to out/subscribers.json', () => {
+        return yargs.options({
+        })
+    }, exportSubscriberList)
     .demandCommand(1, '')
     .help()
     .showHelpOnFail(true)

@@ -14,6 +14,13 @@ export interface RevueResponseIssue {
     active: boolean
 }
 
+export interface RevueSubscriber {
+    email: string,
+    first_name: string,
+    last_name: string,
+    double_opt_in: boolean
+}
+
 export class RevueAPI {
     token: string
 
@@ -60,8 +67,32 @@ export class RevueAPI {
             return []
         }
 
-        log.info(`issues coutn: ${responseIssues.length}`)
+        log.info(`issues count: ${responseIssues.length}`)
         return responseIssues
+    }
+
+    async getSubscribers(): Promise<RevueSubscriber[]> {
+        log.info(`fetching subscribers…`)
+        const response = await axios.request({
+            url: `${REVUE_API}/v2/subscribers`,
+            headers: {
+                "Authorization": `Token ${this.token}`
+            }
+        })
+        log.debug(`response: response`)
+
+        let subscribers: RevueSubscriber[] = []
+        if (Array.isArray(response.data)) {
+            subscribers = response.data
+
+        } else {
+            log.error(`Invalid revue response.`)
+            return []
+        }
+
+        log.info(`subscribers count: ${subscribers.length}`)
+        return subscribers
+
     }
 }
 export const revue = new RevueAPI()
