@@ -1,0 +1,9 @@
+{
+    "log": {
+        "level": "debug",
+        "hostname": "R2MD"
+    },
+    "revue": {
+        "token": "<your-revue-api-token>"
+    }
+}

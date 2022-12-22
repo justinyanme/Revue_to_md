@@ -1,0 +1,45 @@
+{
+    "name": "revue_to_md",
+    "version": "1.0.0",
+    "description": "Export your [Revue](https://www.getrevue.co/) issues to Markdown files.",
+    "main": "index.js",
+    "scripts": {
+        "start": "NODE_ENV=production node built/index.js",
+        "watch": "tsc -w --outDir built",
+        "build": "tsc --outDir built",
+        "dev": "NODE_ENV=development node built/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/justinyanme/Revue_to_md.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/justinyanme/Revue_to_md/issues"
+    },
+    "homepage": "https://github.com/justinyanme/Revue_to_md#readme",
+    "dependencies": {
+        "axios": "^0.21.4",
+        "cheerio": "^1.0.0-rc.3",
+        "config": "^3.3.7",
+        "dayjs": "^1.11.5",
+        "fs-extra": "^11.1.0",
+        "lodash": "^4.17.21",
+        "turndown": "^7.1.1",
+        "winston": "^3.3.3",
+        "yargs": "^17.5.1"
+    },
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/cheerio": "^0.22.31",
+        "@types/config": "^0.0.41",
+        "@types/fs-extra": "^9.0.13",
+        "@types/lodash": "^4.14.172",
+        "@types/node": "^18.0.3",
+        "@types/turndown": "^5.0.1",
+        "@types/yargs": "^17.0.10",
+        "typescript": "^4.7.4"
+    }
+}
