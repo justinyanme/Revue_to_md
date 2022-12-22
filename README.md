@@ -3,6 +3,7 @@ Export your [Revue](https://www.getrevue.co/) issues to Markdown files.
 
 - ✅Save the result as `data.json`
 - ✅Export all issues in Markdown format
+- ✅Export all subscribers to `subscribers.json`
 - ✅Auto download all images
 
 [简体中文请点这里](README_cn.md)
@@ -11,7 +12,7 @@ Export your [Revue](https://www.getrevue.co/) issues to Markdown files.
 
 **Revue API TOKEN** is needed for this project to run.
 
-<!-- You can find your API token at the bottom of: [getrevue.co/app/integrations](https://www.getrevue.co/app/integrations). -->
+You can find your API token at the bottom of: [getrevue.co/app/integrations](https://www.getrevue.co/app/integrations). 
 
 ![](revue_token.png)
 
@@ -64,6 +65,7 @@ index <cmd> [args]
 Commands:
   index listIssues  List all issues from revue
   index saveInMD    Save all issues in markdown format
+  index exportSubscriberList  Export all subscribers to out/subscribers.json
 
 Options:
   --version  Show version number                                       [boolean]

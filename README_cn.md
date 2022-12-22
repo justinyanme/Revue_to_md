@@ -3,6 +3,7 @@
 
 - ✅将API结果保存到 `data.json`
 - ✅把所有Issue保存为Markdown文件
+- ✅支持导出所有订阅者列表 `subscribers.json`
 - ✅自动下载所有图片
 
 ## ⚠️事前准备
@@ -62,6 +63,7 @@ index <cmd> [args]
 Commands:
   index listIssues  列出所有Issues
   index saveInMD    保存所有Issues为Markdown文件
+  index exportSubscriberList  导出订阅者列表到 out/subscribers.json
 
 Options:
   --version  Show version number                                       [boolean]
