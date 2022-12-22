@@ -80,6 +80,11 @@ async function downloadImage(url: string, outFolder: string): Promise<void> {
     }
 
     const imagePath = path.resolve(imageFolder, filename)
+    if (fs.existsSync(imagePath)) {
+        log.info(`File exsts (${imagePath}). Skip…`)
+        return
+    }
+
     const writer = fs.createWriteStream(imagePath)
 
     const response = await axios({

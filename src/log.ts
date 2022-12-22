@@ -2,10 +2,11 @@ import * as winston from 'winston'
 import * as Transport from 'winston-transport'
 import * as path from 'path'
 import * as util from 'util'
-import config = require('config')
+import { setupConfig } from './config'
 
-const logLevel: string = config.get('log.level')
-const hostname: string = config.get('log.hostname')
+const config = setupConfig()
+const logLevel: string = config.log.level ?? "info"
+const hostname: string = config.log.hostname ?? "R2MD"
 
 const transports: Array<Transport> = [
     new winston.transports.Console({
@@ -53,7 +54,7 @@ const logger = winston.createLogger({
     transports: transports,
 });
 logger.debug("Logger initiated.")
-logger.debug(`Log level: ${config.get('log.level')}`)
+logger.debug(`Log level: ${config.log.level}`)
 
 const wrapper = function (module: any = null) {
     let filename = module ? module.filename : ""

@@ -1,8 +1,8 @@
 import { logger } from './log'
 const log = logger(module)
 import axios from 'axios'
-import * as config from 'config'
 import { REVUE_API, urlWithoutQuery } from './common'
+import { setupConfig } from './config'
 
 export interface RevueResponseIssue {
     id: number
@@ -18,7 +18,8 @@ export class RevueAPI {
     token: string
 
     constructor() {
-        this.token = config.get('revue.token')
+        const config = setupConfig()
+        this.token = config.revue.token
     }
 
     async getLatestIssue(): Promise<RevueResponseIssue | null> {

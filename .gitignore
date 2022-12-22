@@ -107,3 +107,4 @@ config/*
 built/*
 .DS_Store
 out/*
+config.json

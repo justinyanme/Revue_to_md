@@ -23,7 +23,6 @@
     "dependencies": {
         "axios": "^0.21.4",
         "cheerio": "^1.0.0-rc.3",
-        "config": "^3.3.7",
         "dayjs": "^1.11.5",
         "fs-extra": "^11.1.0",
         "lodash": "^4.17.21",
@@ -34,7 +33,6 @@
     "devDependencies": {
         "@types/axios": "^0.14.0",
         "@types/cheerio": "^0.22.31",
-        "@types/config": "^0.0.41",
         "@types/fs-extra": "^9.0.13",
         "@types/lodash": "^4.14.172",
         "@types/node": "^18.0.3",

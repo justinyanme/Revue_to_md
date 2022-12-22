@@ -1,16 +1,17 @@
 import { logger } from './log'
 const log = logger(module)
 import * as yargs from 'yargs'
-import * as config from 'config'
 import { downloadImages, extractImageUrlsFromHtml, isValidString, saveIssueToMD } from './common'
 import { revue } from './RevueAPI'
 import * as fs from 'fs-extra'
 import * as path from 'path'
+import { setupConfig } from './config'
 
 async function listIssues(argv: { [key: string]: any }) {
     log.info(`listIssues: ${JSON.stringify(argv)}`)
 
-    const token = config.get('revue.token')
+    const config = setupConfig()
+    const token = config.revue.token
     if (!isValidString(token)) {
         log.error(`invalid token.`)
         return
@@ -30,7 +31,8 @@ async function saveIssues(argv: { [key: string]: any }) {
     const includeImages = argv["images"]
     log.debug(`includeImages: ${includeImages}`)
 
-    const token = config.get('revue.token')
+    const config = setupConfig()
+    const token = config.revue.token
     if (!isValidString(token)) {
         log.error(`invalid token.`)
         return
